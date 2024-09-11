@@ -57,6 +57,17 @@ public class MainWindow {
 	void initialize() {
 		assert this.name != null : "fx:id=\"name\" was not injected: check your FXML file 'MainWindow.fxml'.";
 		assert this.students != null : "fx:id=\"students\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		this.setupListeners();
 
-	}	
+	}
+
+	private void setupListeners() {
+		this.students.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+			Alert infoPopup = new Alert(Alert.AlertType.INFORMATION);
+			infoPopup.setContentText(Integer.toString(newVal.getGrade()));
+			infoPopup.setTitle("Student Grade");
+			infoPopup.showAndWait();
+		});
+	}
+
 }
