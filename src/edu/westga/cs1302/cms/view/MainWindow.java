@@ -63,11 +63,40 @@ public class MainWindow {
 
 	private void setupListeners() {
 		this.students.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
-			Alert infoPopup = new Alert(Alert.AlertType.INFORMATION);
-			infoPopup.setContentText(Integer.toString(newVal.getGrade()));
-			infoPopup.setTitle("Student Grade");
-			infoPopup.showAndWait();
+			try {
+				Alert infoPopup = new Alert(Alert.AlertType.INFORMATION);
+				infoPopup.setContentText(Integer.toString(newVal.getGrade()));
+				infoPopup.setTitle("Student Grade");
+				infoPopup.showAndWait();
+
+			} catch (Exception exception) {
+				return;
+			}
 		});
 	}
+
+	@FXML
+    void getAverageClicked(ActionEvent event) {
+		if (this.students.getItems().isEmpty()) {
+	        Alert errorPopup = new Alert(Alert.AlertType.ERROR);
+	        errorPopup.setContentText("No students in the list to calculate the average.");
+	        errorPopup.showAndWait();
+	        return;
+	    }
+
+	    int totalGrades = 0;
+	    int numberOfStudents = this.students.getItems().size();
+	    
+	    for (Student student : this.students.getItems()) {
+	        totalGrades += student.getGrade();
+	    }
+
+	    double averageGrade = (double) totalGrades / numberOfStudents;
+
+	    Alert infoPopup = new Alert(Alert.AlertType.INFORMATION);
+	    infoPopup.setTitle("Average Grade");
+	    infoPopup.setContentText("The average grade is: " + String.format("%.2f", averageGrade));
+	    infoPopup.showAndWait();
+    }
 
 }
