@@ -23,7 +23,7 @@ public class BillCalculator {
 	 * 
 	 * @return the tax for the bill
 	 */
-	public double getTax(BillItem[] items) {
+	public static double getTax(BillItem[] items) {
 		return getSubTotal(items) * 0.1;
 	}
 
@@ -32,7 +32,7 @@ public class BillCalculator {
 	 * 
 	 * @return the tip for the bill
 	 */
-	public double getTip(BillItem[] items) {
+	public static double getTip(BillItem[] items) {
 		return getSubTotal(items) * 0.2;
 	}
 
@@ -41,7 +41,7 @@ public class BillCalculator {
 	 * 
 	 * @return the total for the bill
 	 */
-	public double getTotal(BillItem[] items) {
-		return getSubTotal(items) + this.getTax(items) + this.getTip(items);
+	public static double getTotal(BillItem[] items) {
+		return getSubTotal(items) + getTax(items) + getTip(items);
 	}
 }
