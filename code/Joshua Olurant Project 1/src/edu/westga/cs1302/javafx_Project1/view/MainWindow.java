@@ -69,4 +69,15 @@ public class MainWindow {
 		}
 	}
 
+	@FXML
+	private void handleIncrementQuantity() {
+		String selectedFoodString = this.pantryListView.getSelectionModel().getSelectedItem();
+
+		if (selectedFoodString != null) {
+			String[] foodDetails = selectedFoodString.split(" – ");
+			Food selectedFood = new Food(foodDetails[0], "someType");
+			selectedFood.setQuantity(Integer.parseInt(foodDetails[1]) + 1);
+			this.pantryItems.set(this.pantryListView.getSelectionModel().getSelectedIndex(), selectedFood.toString());
+		}
+	}
 }
