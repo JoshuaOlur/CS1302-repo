@@ -22,8 +22,15 @@ public class MainWindow {
 	private ComboBox<String> foodTypeComboBox;
 	@FXML
 	private ListView<String> pantryListView;
-	
+
 	private ObservableList<String> pantryItems;
+
+	@FXML
+	private void initialize() {
+		this.foodTypeComboBox.setItems(FXCollections.observableArrayList("Fruit", "Vegetable", "Grain", "Protein", "Dairy"));
+		this.pantryItems = FXCollections.observableArrayList();
+		this.pantryListView.setItems(this.pantryItems);
+	}
 
 	@FXML
 	private void handleAddFood() {
@@ -32,12 +39,10 @@ public class MainWindow {
 
 		if (foodName != null && !foodName.isEmpty() && foodType != null) {
 			String foodItem = foodName + " (" + foodType + ")";
+			this.pantryItems.add(foodItem);
+			this.foodNameTextField.clear();
+			this.foodTypeComboBox.getSelectionModel().clearSelection();
 		}
 	}
 
-	@FXML
-	private void initialize() {
-		this.pantryItems = FXCollections.observableArrayList();
-		this.pantryListView.setItems(this.pantryItems);
-	}
 }
