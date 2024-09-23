@@ -1,5 +1,6 @@
 package edu.westga.cs1302.javafx_Project1.view;
 
+import edu.westga.cs1302.javafx_Project1.model.Food;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -27,7 +28,8 @@ public class MainWindow {
 
 	@FXML
 	private void initialize() {
-		this.foodTypeComboBox.setItems(FXCollections.observableArrayList("Test", "1", "2", "5", "6"));
+		this.foodTypeComboBox.setItems(
+				FXCollections.observableArrayList("Vegetable", "Meat", "Bread", "Fruit", "Dessert", "Ingredient"));
 		this.pantryItems = FXCollections.observableArrayList();
 		this.pantryListView.setItems(this.pantryItems);
 	}
@@ -38,8 +40,8 @@ public class MainWindow {
 		String foodType = this.foodTypeComboBox.getValue();
 
 		if (foodName != null && !foodName.isEmpty() && foodType != null) {
-			String foodItem = foodName + " (" + foodType + ")";
-			this.pantryItems.add(foodItem);
+			Food newFood = new Food(foodName, foodType);
+			this.pantryItems.add(newFood.toString());
 			this.foodNameTextField.clear();
 			this.foodTypeComboBox.getSelectionModel().clearSelection();
 		}
