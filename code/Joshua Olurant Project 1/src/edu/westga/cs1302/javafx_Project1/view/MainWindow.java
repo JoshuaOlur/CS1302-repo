@@ -27,7 +27,7 @@ public class MainWindow {
 
 	@FXML
 	private void initialize() {
-		this.foodTypeComboBox.setItems(FXCollections.observableArrayList("Fruit", "Vegetable", "Grain", "Protein", "Dairy"));
+		this.foodTypeComboBox.setItems(FXCollections.observableArrayList("Test", "1", "2", "5", "6"));
 		this.pantryItems = FXCollections.observableArrayList();
 		this.pantryListView.setItems(this.pantryItems);
 	}
