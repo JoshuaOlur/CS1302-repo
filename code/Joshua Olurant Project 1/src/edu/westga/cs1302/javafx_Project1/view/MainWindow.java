@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 /**
  * Codebehind for the Main Window of the application.
  * 
- * @author CS 1302
+ * @author Joshua Oluranti
  * @version Fall 2024
  */
 public class MainWindow {
@@ -17,4 +17,14 @@ public class MainWindow {
 
 	@FXML
 	private ComboBox<String> foodTypeComboBox;
+	
+	@FXML
+	private void handleAddFood() {
+	    String foodName = this.foodNameTextField.getText();
+	    String foodType = this.foodTypeComboBox.getValue();
+
+	    if (foodName != null && !foodName.isEmpty() && foodType != null) {
+	        String foodItem = foodName + " (" + foodType + ")";
+	    }
+	}
 }
