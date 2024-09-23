@@ -20,5 +20,7 @@
 		<TextField fx:id="quantityTextField" layoutX="450.0" layoutY="58.0" prefWidth="100.0" />
 		<Button layoutX="346.0" layoutY="88.0" mnemonicParsing="false" onAction="#handleSetQuantity" text="Set Quantity" />
 		<Button layoutX="327.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleIncrementQuantity" text="Increment Quantity" />
+		<Button layoutX="325.0" layoutY="163.0" mnemonicParsing="false" onAction="#handleDecrementQuantity" text="Decrement Quantity" />
+
 	</children>
 </AnchorPane>

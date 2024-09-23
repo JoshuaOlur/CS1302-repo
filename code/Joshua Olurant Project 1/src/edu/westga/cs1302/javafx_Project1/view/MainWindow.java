@@ -80,4 +80,21 @@ public class MainWindow {
 			this.pantryItems.set(this.pantryListView.getSelectionModel().getSelectedIndex(), selectedFood.toString());
 		}
 	}
+	
+	@FXML
+	private void handleDecrementQuantity() {
+	    String selectedFoodString = this.pantryListView.getSelectionModel().getSelectedItem();
+
+	    if (selectedFoodString != null) {
+	        String[] foodDetails = selectedFoodString.split(" – ");
+	        int currentQuantity = Integer.parseInt(foodDetails[1]);
+
+	        if (currentQuantity > 0) {
+	            Food selectedFood = new Food(foodDetails[0], "someType"); 
+	            selectedFood.setQuantity(currentQuantity - 1);
+	            this.pantryItems.set(this.pantryListView.getSelectionModel().getSelectedIndex(), selectedFood.toString());
+	        }
+	    }
+	}
+
 }
