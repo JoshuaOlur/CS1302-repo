@@ -27,6 +27,9 @@ public class MainWindow {
 	private ObservableList<String> pantryItems;
 
 	@FXML
+	private TextField quantityTextField;
+
+	@FXML
 	private void initialize() {
 		this.foodTypeComboBox.setItems(
 				FXCollections.observableArrayList("Vegetable", "Meat", "Bread", "Fruit", "Dessert", "Ingredient"));
@@ -44,6 +47,25 @@ public class MainWindow {
 			this.pantryItems.add(newFood.toString());
 			this.foodNameTextField.clear();
 			this.foodTypeComboBox.getSelectionModel().clearSelection();
+		}
+	}
+
+	@FXML
+	private void handleSetQuantity() {
+		String selectedFoodString = this.pantryListView.getSelectionModel().getSelectedItem();
+		String quantityText = this.quantityTextField.getText();
+
+		if (selectedFoodString != null && quantityText != null && !quantityText.isEmpty()) {
+			try {
+				int newQuantity = Integer.parseInt(quantityText);
+				String[] foodDetails = selectedFoodString.split(" – ");
+				Food selectedFood = new Food(foodDetails[0], "someType");
+				selectedFood.setQuantity(newQuantity);
+				this.pantryItems.set(this.pantryListView.getSelectionModel().getSelectedIndex(),
+						selectedFood.toString());
+			} catch (NumberFormatException eE) {
+
+			}
 		}
 	}
 
