@@ -1,9 +1,12 @@
 package edu.westga.cs1302.javafx_Project1.view;
 
 import edu.westga.cs1302.javafx_Project1.model.Food;
+import edu.westga.cs1302.javafx_Project1.utils.PantryUtility;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -22,7 +25,7 @@ public class MainWindow {
 	@FXML
 	private ComboBox<String> foodTypeComboBox;
 	@FXML
-	private ListView<String> pantryListView;
+	private ListView<Food> pantryListView;
 
 	private ObservableList<String> pantryItems;
 
@@ -34,7 +37,6 @@ public class MainWindow {
 		this.foodTypeComboBox.setItems(
 				FXCollections.observableArrayList("Vegetable", "Meat", "Bread", "Fruit", "Dessert", "Ingredient"));
 		this.pantryItems = FXCollections.observableArrayList();
-		this.pantryListView.setItems(this.pantryItems);
 	}
 
 	@FXML
@@ -45,6 +47,7 @@ public class MainWindow {
 		if (foodName != null && !foodName.isEmpty() && foodType != null) {
 			Food newFood = new Food(foodName, foodType);
 			this.pantryItems.add(newFood.toString());
+			this.pantryListView.getItems().add(newFood);
 			this.foodNameTextField.clear();
 			this.foodTypeComboBox.getSelectionModel().clearSelection();
 		}
@@ -52,17 +55,14 @@ public class MainWindow {
 
 	@FXML
 	private void handleSetQuantity() {
-		String selectedFoodString = this.pantryListView.getSelectionModel().getSelectedItem();
+		Food selectedFood = this.pantryListView.getSelectionModel().getSelectedItem();
 		String quantityText = this.quantityTextField.getText();
 
-		if (selectedFoodString != null && quantityText != null && !quantityText.isEmpty()) {
+		if (selectedFood != null && quantityText != null && !quantityText.isEmpty()) {
 			try {
 				int newQuantity = Integer.parseInt(quantityText);
-				String[] foodDetails = selectedFoodString.split(" – ");
-				Food selectedFood = new Food(foodDetails[0], "someType");
 				selectedFood.setQuantity(newQuantity);
-				this.pantryItems.set(this.pantryListView.getSelectionModel().getSelectedIndex(),
-						selectedFood.toString());
+				this.pantryListView.refresh();
 			} catch (NumberFormatException eE) {
 
 			}
@@ -71,43 +71,31 @@ public class MainWindow {
 
 	@FXML
 	private void handleIncrementQuantity() {
-		String selectedFoodString = this.pantryListView.getSelectionModel().getSelectedItem();
-
-		if (selectedFoodString != null) {
-			String[] foodDetails = selectedFoodString.split(" – ");
-			Food selectedFood = new Food(foodDetails[0], "someType");
-			selectedFood.setQuantity(Integer.parseInt(foodDetails[1]) + 1);
-			this.pantryItems.set(this.pantryListView.getSelectionModel().getSelectedIndex(), selectedFood.toString());
-		}
+		Food selectedFood = this.pantryListView.getSelectionModel().getSelectedItem();
+		selectedFood.setQuantity(selectedFood.getQuantity() + 1);
+		this.pantryListView.refresh();
 	}
-	
+
 	@FXML
 	private void handleDecrementQuantity() {
-	    String selectedFoodString = this.pantryListView.getSelectionModel().getSelectedItem();
-
-	    if (selectedFoodString != null) {
-	        String[] foodDetails = selectedFoodString.split(" – ");
-	        int currentQuantity = Integer.parseInt(foodDetails[1]);
-
-	        if (currentQuantity > 0) {
-	            Food selectedFood = new Food(foodDetails[0], "someType"); 
-	            selectedFood.setQuantity(currentQuantity - 1);
-	            this.pantryItems.set(this.pantryListView.getSelectionModel().getSelectedIndex(), selectedFood.toString());
-	        }
-	    }
+		Food selectedFood = this.pantryListView.getSelectionModel().getSelectedItem();
+		selectedFood.setQuantity(selectedFood.getQuantity() - 1);
+		this.pantryListView.refresh();
 	}
-	
+
 	@FXML
 	private void handleRemoveFood() {
-		String selectedFood = this.pantryListView.getSelectionModel().getSelectedItem();
-
-	    if (selectedFood != null) {
-	        this.pantryItems.remove(selectedFood);
-	    }
+		Food selectedFood = this.pantryListView.getSelectionModel().getSelectedItem();
+		this.pantryListView.getItems().remove(selectedFood);
 	}
 
 	@FXML
 	private void handleViewCount() {
-		
+		int totalQuantity = PantryUtility.getTotalQuantity(this.pantryListView.getItems());
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Total Quantity");
+		alert.setHeaderText(null);
+		alert.setContentText("Total quantity of food items in the pantry: " + totalQuantity);
+		alert.showAndWait();
 	}
 }
