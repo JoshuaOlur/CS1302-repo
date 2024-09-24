@@ -99,7 +99,11 @@ public class MainWindow {
 	
 	@FXML
 	private void handleRemoveFood() {
-		
+		String selectedFood = this.pantryListView.getSelectionModel().getSelectedItem();
+
+	    if (selectedFood != null) {
+	        this.pantryItems.remove(selectedFood);
+	    }
 	}
 
 }
