@@ -106,4 +106,8 @@ public class MainWindow {
 	    }
 	}
 
+	@FXML
+	private void handleViewCount() {
+		
+	}
 }
