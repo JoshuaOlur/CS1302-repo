@@ -13,7 +13,7 @@
 		<TextField fx:id="foodNameTextField" layoutX="162.0" layoutY="58.0" />
 		<Label layoutX="50.0" layoutY="100.0" text="Food Type:" />
 		<ComboBox fx:id="foodTypeComboBox" layoutX="150.0" layoutY="100.0" prefWidth="150.0" />
-		<Button layoutX="150.0" layoutY="150.0" mnemonicParsing="false" onAction="#handleAddFood" text="Add Food" />
+		<Button layoutX="151.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleAddFood" text="Add Food" />
 		<Label layoutX="50.0" layoutY="200.0" text="Pantry Items:" />
 		<ListView fx:id="pantryListView" layoutX="150.0" layoutY="200.0" prefHeight="300.0" prefWidth="300.0" />
 		<Label layoutX="352.0" layoutY="62.0" text="Set Quantity:" />
@@ -21,6 +21,8 @@
 		<Button layoutX="346.0" layoutY="88.0" mnemonicParsing="false" onAction="#handleSetQuantity" text="Set Quantity" />
 		<Button layoutX="327.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleIncrementQuantity" text="Increment Quantity" />
 		<Button layoutX="325.0" layoutY="163.0" mnemonicParsing="false" onAction="#handleDecrementQuantity" text="Decrement Quantity" />
+		<Button layoutX="148.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleRemoveFood" prefHeight="25.0" prefWidth="94.0" text="Remove Food" />
+
 
 	</children>
 </AnchorPane>

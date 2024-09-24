@@ -96,5 +96,10 @@ public class MainWindow {
 	        }
 	    }
 	}
+	
+	@FXML
+	private void handleRemoveFood() {
+		
+	}
 
 }
