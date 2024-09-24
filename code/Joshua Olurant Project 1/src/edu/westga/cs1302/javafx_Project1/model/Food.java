@@ -31,7 +31,11 @@ public class Food {
 	    this.quantity++;
 	}
 	
-	
+	public void decrementQuantity() {
+	    if (this.quantity > 0) {
+	        this.quantity--;
+	    }
+	}
 
 	@Override
 	public String toString() {
