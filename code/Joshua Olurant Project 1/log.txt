@@ -1,3 +1,11 @@
+commit 41bddb40e9fc189a117b2e171ce71720f1619565
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Sep 25 14:54:03 2024 -0400
+
+    Fixing error
+    
+    Accidentally got rid of toString method added it back.
+
 commit 4abe2a062d0c43146b9c42c4f4f99eb3694c3042
 Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
 Date:   Wed Sep 25 14:32:31 2024 -0400
