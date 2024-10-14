@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @author CS 1302
  * @version Fall 2024
  */
-public class CSVBillPersistenceManager extends BillPersistenceManager {
+public class TSVBillPersistenceManager extends BillPersistenceManager {
 	
 	public static final String DATA_FILE = "data.txt";
 	
@@ -32,7 +32,7 @@ public class CSVBillPersistenceManager extends BillPersistenceManager {
 		try (FileWriter writer = new FileWriter(DATA_FILE)) {
 			writer.write(bill.getServerName() + System.lineSeparator());
 			for (BillItem item : bill.getItems()) {
-				writer.write(item.getName() + "," + item.getAmount() + System.lineSeparator());
+				writer.write(item.getName() + "\t" + item.getAmount() + System.lineSeparator());
 			}
 		}
 		
@@ -56,7 +56,7 @@ public class CSVBillPersistenceManager extends BillPersistenceManager {
 		try (Scanner reader = new Scanner(inputFile)) {
 			bill.setServerName(reader.nextLine());
 			while (reader.hasNextLine()) {
-				String[] itemData = reader.nextLine().strip().split(",");
+				String[] itemData = reader.nextLine().strip().split("\t");
 				bill.addItem(new BillItem(itemData[0], Double.parseDouble(itemData[1])));
 			}
 		} catch (Exception error) {
