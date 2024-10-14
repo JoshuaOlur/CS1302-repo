@@ -1,66 +1,43 @@
 package edu.westga.cs1302.bill.model;
 
-import java.io.File;
-import java.io.FileWriter;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Scanner;
 
-/** Supports saving and loading bill data,
+/**
+ * Supports saving and loading bill data,
  * 
  * @author CS 1302
  * @version Fall 2024
  */
-public class BillPersistenceManager {
-	
-	public static final String DATA_FILE = "data.txt";
-	
-	/** Save the bill!
+public abstract class BillPersistenceManager {
+
+	/**
+	 * Save the bill!
 	 * 
-	 * Writes all bill data to DATA_FILE
+	 * Writes the bill data to a file. The file format is as follows:
+	 * serverName
+	 * itemName,itemAmount
 	 * 
 	 * @precondition bill != null
 	 * @postcondition none
 	 * 
 	 * @param bill the bill to save
-	 * @throws IOException 
+	 * @throws IOException if an I/O error occurs during writing
 	 */
-	public static void saveBillData(Bill bill) throws IOException, IllegalArgumentException {
-		if (bill == null) {
-			throw new IllegalArgumentException("Must provide a valid bill");
-		}
-		try (FileWriter writer = new FileWriter(DATA_FILE)) {
-			writer.write(bill.getServerName() + System.lineSeparator());
-			for (BillItem item : bill.getItems()) {
-				writer.write(item.getName() + "," + item.getAmount() + System.lineSeparator());
-			}
-		}
-		
-	}
+	public abstract void saveBillData(Bill bill) throws IOException;
 
-	/** Load the bill!
+	/**
+	 * Load the bill!
 	 * 
-	 * Reads from DATA_FILE
-	 * File is assumed to use the same format as saveBillData
+	 * Reads the bill data from a file. The file format is as described in
+	 * saveBillData.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the bill loaded 	if file is in valid format
-	 * 		   a new bill 		if file is not in valid format or does not exist
+	 * @return the bill loaded from the file
+	 * @throws FileNotFoundException if the file does not exist
+	 * @throws IOException if an I/O error occurs or the file has invalid data
 	 */
-	public static Bill loadBillData() {
-		Bill bill = new Bill();
-		File inputFile = new File(DATA_FILE);
-		try (Scanner reader = new Scanner(inputFile)) {
-			bill.setServerName(reader.nextLine());
-			while (reader.hasNextLine()) {
-				String[] itemData = reader.nextLine().strip().split(",");
-				bill.addItem(new BillItem(itemData[0], Double.parseDouble(itemData[1])));
-			}
-		} catch (Exception error) {
-			bill = new Bill();
-		}
-		return bill;
-	}
-
+	public abstract Bill loadBillData() throws FileNotFoundException, IOException;
 }
