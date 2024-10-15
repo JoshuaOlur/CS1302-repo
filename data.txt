@@ -1,5 +1,5 @@
-Trudy
-wah,50.0
-patrice,505.0
-opie,808.0
-anthony,444.0
+Bob
+arg	555.0
+arggee	5554.0
+jenjen	784.0
+wantwan	414.0
