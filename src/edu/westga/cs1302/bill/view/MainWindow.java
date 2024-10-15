@@ -1,9 +1,12 @@
 package edu.westga.cs1302.bill.view;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
 import edu.westga.cs1302.bill.model.Bill;
 import edu.westga.cs1302.bill.model.BillItem;
+
 import edu.westga.cs1302.bill.model.CSVBillPersistenceManager;
 import edu.westga.cs1302.bill.model.TSVBillPersistenceManager;
 import javafx.event.ActionEvent;
@@ -20,8 +23,8 @@ import javafx.scene.control.TextField;
  * @version Fall 2024
  */
 public class MainWindow {
+	public static final String DATA_FILE = "data.txt";
 	private Bill bill;
-
 	@FXML
 	private TextField name;
 	@FXML
@@ -88,10 +91,22 @@ public class MainWindow {
 		this.serverName.getItems().add("Bob");
 		this.serverName.getItems().add("Alice");
 		this.serverName.getItems().add("Trudy");
-		CSVBillPersistenceManager csvBill = new CSVBillPersistenceManager();
-		this.bill = csvBill.loadBillData();	
-		TSVBillPersistenceManager tsvBill = new TSVBillPersistenceManager();
-		this.bill = tsvBill.loadBillData();
+
+		File file = new File(DATA_FILE);
+		try (Scanner reader = new Scanner(file)) {
+			reader.nextLine();
+			String fileString = reader.nextLine();
+			if (fileString.contains(",")) {
+				CSVBillPersistenceManager csvBill = new CSVBillPersistenceManager();
+				this.bill = csvBill.loadBillData();
+			} else {
+				TSVBillPersistenceManager tsvBill = new TSVBillPersistenceManager();
+				this.bill = tsvBill.loadBillData();
+			}
+		} catch (Exception ex) {
+
+		}
+
 		this.updateReceipt();
 		this.fileTypeComboBox.getItems().add("CSV");
 		this.fileTypeComboBox.getItems().add("TSV");
