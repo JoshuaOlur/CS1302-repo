@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 import edu.westga.cs1302.bill.model.Bill;
 import edu.westga.cs1302.bill.model.BillItem;
+import edu.westga.cs1302.bill.model.BillItemAscendingAmountComparator;
+import edu.westga.cs1302.bill.model.BillItemDescendingAmountComparator;
 
 import edu.westga.cs1302.bill.model.CSVBillPersistenceManager;
 import edu.westga.cs1302.bill.model.TSVBillPersistenceManager;
@@ -35,6 +37,8 @@ public class MainWindow {
 	private ComboBox<String> serverName;
 	@FXML
 	private ComboBox<String> fileTypeComboBox;
+	@FXML
+    private ComboBox<String> sortComboBox;
 
 	@FXML
 	void addItem(ActionEvent event) {
@@ -63,6 +67,16 @@ public class MainWindow {
 			this.updateReceipt();
 		}
 	}
+	
+	@FXML
+    void sortBillItems(ActionEvent event) {
+        if (this.sortComboBox.getSelectionModel().getSelectedItem().equals("Ascending Order")) {
+            this.bill.sortBill(new BillItemAscendingAmountComparator());
+        } else if (this.sortComboBox.getSelectionModel().getSelectedItem().equals("Descending Order")) {
+        	this.bill.sortBill(new BillItemDescendingAmountComparator());
+        }
+        this.updateReceipt();
+    }
 
 	@FXML
 	void saveBillData(ActionEvent event) {
@@ -91,6 +105,10 @@ public class MainWindow {
 		this.serverName.getItems().add("Bob");
 		this.serverName.getItems().add("Alice");
 		this.serverName.getItems().add("Trudy");
+		
+		this.sortComboBox.getItems().add("Ascending Order");
+        this.sortComboBox.getItems().add("Descending Order");
+        this.sortComboBox.setOnAction(this::sortBillItems);
 
 		File file = new File(DATA_FILE);
 		try (Scanner reader = new Scanner(file)) {

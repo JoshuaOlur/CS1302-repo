@@ -1,6 +1,7 @@
 package edu.westga.cs1302.bill.model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  * Manages a set of BillItems.
@@ -21,8 +22,9 @@ public class Bill {
 		this.serverName = "No Server Set";
 		this.items = new ArrayList<BillItem>();
 	}
-	
-	/** Return the server name for the bill
+
+	/**
+	 * Return the server name for the bill
 	 * 
 	 * @return the server name for the bill
 	 */
@@ -30,7 +32,8 @@ public class Bill {
 		return this.serverName;
 	}
 
-	/** Sets the server name for the bill
+	/**
+	 * Sets the server name for the bill
 	 * 
 	 * @precondition name != null && !name.isEmpty()
 	 * @postcondition getServerName() == name
@@ -64,8 +67,9 @@ public class Bill {
 		}
 		this.items.add(item);
 	}
-	
-	/** Return the number of items in the bill
+
+	/**
+	 * Return the number of items in the bill
 	 * 
 	 * @return the number of items in the bill
 	 */
@@ -82,4 +86,12 @@ public class Bill {
 		return this.items.toArray(new BillItem[this.items.size()]);
 	}
 
+	/**
+	 * Sorts the Bill.
+	 * 
+	 * @param billSorter the comparator that sorts the bill
+	 */
+	public void sortBill(Comparator<BillItem> billSorter) {
+		this.items.sort(billSorter);
+	}
 }
