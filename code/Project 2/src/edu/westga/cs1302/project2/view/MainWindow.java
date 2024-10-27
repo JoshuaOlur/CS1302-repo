@@ -53,9 +53,10 @@ public class MainWindow {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@FXML
 	void initialize() {
-		this.ingredientType.getItems().addAll("Vegetable", "Meat", "Bread", "Fruit", "Spice");
+		this.ingredientType.getItems().addAll("Vegetable", "Meat", "Bread", "Fruit", "Spice"); //comeback to this
 		this.sortCriteria.getItems().addAll(new TypeComparator(), new NameComparator());
 		this.sortCriteria.getSelectionModel().selectFirst();
 		this.sortCriteria.setOnAction(event -> this.sortIngredients());
