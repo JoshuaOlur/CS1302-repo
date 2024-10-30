@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane minHeight="458.0" minWidth="600.0" prefHeight="642.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.project2.view.MainWindow">
+<AnchorPane minHeight="458.0" minWidth="600.0" prefHeight="642.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.project2.view.MainWindow">
    <children>
       <Button layoutX="205.0" layoutY="16.0" mnemonicParsing="false" onAction="#addIngredient" text="+" />
       <ComboBox fx:id="ingredientType" layoutX="119.0" layoutY="41.0" prefHeight="25.0" prefWidth="81.0" />
@@ -22,5 +22,11 @@
       <Line endX="-412.0" endY="-133.0" layoutX="427.0" layoutY="212.0" startX="-200.0" startY="-133.0" />
       <Label layoutX="275.0" layoutY="20.0" text="Sort by" />
 <ComboBox fx:id="sortCriteria" layoutX="250.0" layoutY="41.0" prefHeight="25.0" prefWidth="98.0" />
+<Label layoutX="250.0" layoutY="83.0" text="Recipe Name" />
+<TextField fx:id="recipeName" layoutX="327.0" layoutY="79.0" prefHeight="25.0" prefWidth="121.0" />
+<ListView fx:id="recipeIngredientsList" layoutX="251.0" layoutY="121.0" prefHeight="200.0" prefWidth="150.0" />
+<Button layoutX="333.0" layoutY="338.0" mnemonicParsing="false" text="Add to Recipe" />
+<Button layoutX="247.0" layoutY="338.0" mnemonicParsing="false" text="Add Recipe" />
+
    </children>
 </AnchorPane>
