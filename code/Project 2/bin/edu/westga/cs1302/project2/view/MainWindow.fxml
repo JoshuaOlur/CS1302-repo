@@ -25,8 +25,8 @@
 <Label layoutX="250.0" layoutY="83.0" text="Recipe Name" />
 <TextField fx:id="recipeName" layoutX="327.0" layoutY="79.0" prefHeight="25.0" prefWidth="121.0" />
 <ListView fx:id="recipeIngredientsList" layoutX="251.0" layoutY="121.0" prefHeight="200.0" prefWidth="150.0" />
-<Button layoutX="333.0" layoutY="338.0" mnemonicParsing="false" text="Add to Recipe" />
-<Button layoutX="247.0" layoutY="338.0" mnemonicParsing="false" text="Add Recipe" />
+<Button layoutX="249.0" layoutY="325.0" mnemonicParsing="false" onAction="#addIngredientToRecipe" text="Add to Recipe" />
+<Button layoutX="349.0" layoutY="325.0" mnemonicParsing="false" onAction="#addRecipe" text="Add Recipe" />
 
    </children>
 </AnchorPane>

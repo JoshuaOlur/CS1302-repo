@@ -1,5 +1,6 @@
 package edu.westga.cs1302.project2.view;
 
+import java.io.IOException;
 import java.util.Comparator;
 
 import edu.westga.cs1302.project2.model.Ingredient;
@@ -10,6 +11,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import edu.westga.cs1302.project2.model.NameComparator;
+import edu.westga.cs1302.project2.model.Recipe;
+import edu.westga.cs1302.project2.model.RecipeFileManager;
 import edu.westga.cs1302.project2.model.TypeComparator;
 
 /**
@@ -27,6 +30,10 @@ public class MainWindow {
 	private TextField ingredientName;
 	@FXML
 	private ComboBox<Comparator<Ingredient>> sortCriteria;
+	@FXML
+	private ListView<Ingredient> recipeIngredientsList;
+	@FXML
+	private TextField recipeName;
 
 	@FXML
 	void addIngredient(ActionEvent event) {
@@ -69,4 +76,37 @@ public class MainWindow {
 		}
 	}
 
+	@FXML
+	void addIngredientToRecipe(ActionEvent event) {
+	    Ingredient selectedIngredient = this.ingredientsList.getSelectionModel().getSelectedItem();
+	    if (selectedIngredient != null) {
+	        this.recipeIngredientsList.getItems().add(selectedIngredient);
+	    }
+	}
+	
+	@FXML
+	void addRecipe(ActionEvent event) {
+	    String name = this.recipeName.getText();
+	    if (name == null || name.isEmpty()) {
+	        Alert alert = new Alert(Alert.AlertType.ERROR);
+	        alert.setHeaderText("Invalid Recipe Name");
+	        alert.setContentText("Recipe name cannot be empty.");
+	        alert.showAndWait();
+	        return;
+	    }
+
+	    Recipe newRecipe = new Recipe(name);
+	    newRecipe.getIngredients().addAll(this.recipeIngredientsList.getItems());
+
+	    try {
+	        RecipeFileManager.writeRecipeToFile(newRecipe, "recipes.txt");
+	        this.recipeIngredientsList.getItems().clear();
+	        this.recipeName.clear();
+	    } catch (IOException | IllegalStateException eE) {
+	        Alert alert = new Alert(Alert.AlertType.ERROR);
+	        alert.setHeaderText("Unable to save recipe");
+	        alert.setContentText(eE.getMessage());
+	        alert.showAndWait();
+	    }
+	}
 }
