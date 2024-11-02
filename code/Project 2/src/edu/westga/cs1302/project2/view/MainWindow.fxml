@@ -27,6 +27,7 @@
 <ListView fx:id="recipeIngredientsList" layoutX="251.0" layoutY="121.0" prefHeight="200.0" prefWidth="150.0" />
 <Button layoutX="249.0" layoutY="325.0" mnemonicParsing="false" onAction="#addIngredientToRecipe" text="Add to Recipe" />
 <Button layoutX="349.0" layoutY="325.0" mnemonicParsing="false" onAction="#addRecipe" text="Add Recipe" />
-
+<TextArea fx:id="recipeDisplayArea" layoutX="250.0" layoutY="375.0" prefHeight="200.0" prefWidth="350.0" />
+      <Button layoutX="250.0" layoutY="580.0" mnemonicParsing="false" text="Display Recipes with Ingredient" />
    </children>
 </AnchorPane>

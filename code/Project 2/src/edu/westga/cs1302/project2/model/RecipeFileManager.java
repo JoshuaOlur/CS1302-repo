@@ -10,7 +10,7 @@ public class RecipeFileManager {
             try (Scanner scanner = new Scanner(file)) {
                 while (scanner.hasNextLine()) {
                     if (scanner.nextLine().equals(recipe.getName())) {
-                        throw new IllegalStateException("Recipe with the same name already exists.");//1
+                        throw new IllegalStateException("Recipe with the same name already exists.");
                     }
                 }
             }
