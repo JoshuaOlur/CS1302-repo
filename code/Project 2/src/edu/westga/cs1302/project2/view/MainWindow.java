@@ -2,6 +2,7 @@ package edu.westga.cs1302.project2.view;
 
 import java.io.IOException;
 import java.util.Comparator;
+import java.util.List;
 
 import edu.westga.cs1302.project2.model.Ingredient;
 import javafx.event.ActionEvent;
@@ -9,10 +10,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import edu.westga.cs1302.project2.model.NameComparator;
 import edu.westga.cs1302.project2.model.Recipe;
+import edu.westga.cs1302.project2.model.RecipeConverter;
 import edu.westga.cs1302.project2.model.RecipeFileManager;
+import edu.westga.cs1302.project2.model.RecipeLoader;
 import edu.westga.cs1302.project2.model.TypeComparator;
 
 /**
@@ -34,7 +38,9 @@ public class MainWindow {
 	private ListView<Ingredient> recipeIngredientsList;
 	@FXML
 	private TextField recipeName;
-
+	@FXML
+    private TextArea recipeDisplayArea;
+	
 	@FXML
 	void addIngredient(ActionEvent event) {
 		try {
@@ -109,4 +115,26 @@ public class MainWindow {
 	        alert.showAndWait();
 	    }
 	}
+	
+	@FXML
+	void displayRecipes(ActionEvent event) {
+		String selectedIngredientName = this.ingredientsList.getSelectionModel().getSelectedItem() != null
+				? this.ingredientsList.getSelectionModel().getSelectedItem().getName()
+				: null;
+
+        if (selectedIngredientName == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("No Ingredient Selected");
+            alert.setContentText("Please select an ingredient to display recipes.");
+            alert.showAndWait();
+            return;
+        }
+
+        RecipeLoader recipeLoader = new RecipeLoader();
+        List<Recipe> allRecipes = recipeLoader.loadRecipes("recipes.txt");
+        List<Recipe> filteredRecipes = recipeLoader.loadRecipesByIngredient("recipes.txt", selectedIngredientName);
+        String recipesString = RecipeConverter.convertRecipeListToString(filteredRecipes);
+        this.recipeDisplayArea.setText(recipesString);
+    }
 }
+
