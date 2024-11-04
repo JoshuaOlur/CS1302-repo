@@ -16,9 +16,7 @@ public class TypeComparator implements Comparator<Ingredient> {
      * 
      * @param ingredient1 the first ingredient
      * @param ingredient2 the second ingredient
-     * @return a negative integer, zero, or a positive integer if the type of
-     *         ingredient1 is less than, equal to, or greater than the type of
-     *         ingredient2
+     * @return a negative integer, zero, or a positive
      */
     @Override
     public int compare(Ingredient ingredient1, Ingredient ingredient2) {
