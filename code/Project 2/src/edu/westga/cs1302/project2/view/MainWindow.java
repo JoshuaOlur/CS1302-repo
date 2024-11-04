@@ -98,6 +98,7 @@ public class MainWindow {
 	void addRecipe(ActionEvent event) {
 		String name = this.recipeName.getText();
 		List<Ingredient> ingredients = new ArrayList<>(this.recipeIngredientsList.getItems());
+
 		if (name == null || name.isEmpty()) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setHeaderText("Invalid Recipe Name");
@@ -106,8 +107,15 @@ public class MainWindow {
 			return;
 		}
 
+		if (ingredients.isEmpty()) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setHeaderText("No Ingredients");
+			alert.setContentText("Cannot add a recipe with no ingredients.");
+			alert.showAndWait();
+			return;
+		}
+
 		Recipe newRecipe = new Recipe(name, ingredients);
-		newRecipe.getIngredients().addAll(this.recipeIngredientsList.getItems());
 
 		try {
 			RecipeFileManager.writeRecipeToFile(newRecipe, "recipes.txt");
