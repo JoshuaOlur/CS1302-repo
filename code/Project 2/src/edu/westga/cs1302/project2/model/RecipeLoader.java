@@ -12,44 +12,59 @@ public class RecipeLoader {
 		List<Recipe> recipes = new ArrayList<>();
 		File file = new File(filePath);
 
-		if (!file.exists() || file.length() == 0) {
+		if (!file.exists()) {
 			return recipes;
 		}
 
 		try (Scanner scanner = new Scanner(file)) {
+			String recipeName = "";
+			List<Ingredient> ingredients = new ArrayList<>();
+
 			while (scanner.hasNextLine()) {
-				String recipeName = scanner.nextLine().trim();
-				String ingredientsLine = scanner.nextLine().trim();
-				Recipe recipe = new Recipe(recipeName);
-				String[] ingredients = ingredientsLine.split(", ");
-				for (String ingredient : ingredients) {
-					String[] parts = ingredient.split("-");
-					if (parts.length == 2) {
-						recipe.addIngredient(new Ingredient(parts[0], parts[1]));
+				String line = scanner.nextLine().trim();
+
+				if (line.isEmpty()) {
+					if (!recipeName.isEmpty() && !ingredients.isEmpty()) {
+						recipes.add(new Recipe(recipeName, new ArrayList<>(ingredients)));
+					}
+
+					recipeName = "";
+					ingredients.clear();
+				} else if (recipeName.isEmpty()) {
+
+					recipeName = line;
+				} else {
+
+					String[] parts = line.split(",\\s*");
+					for (String part : parts) {
+						ingredients.add(new Ingredient(part.trim(), "unknown"));
 					}
 				}
-				recipes.add(recipe);
+			}
+
+			if (!recipeName.isEmpty() && !ingredients.isEmpty()) {
+				recipes.add(new Recipe(recipeName, ingredients));
 			}
 		} catch (FileNotFoundException eE) {
-
+			eE.printStackTrace();
 		}
 
 		return recipes;
 	}
 
-	public List<Recipe> loadRecipesByIngredient(String filePath, String ingredientName) {
-		List<Recipe> recipes = this.loadRecipes(filePath);
-		List<Recipe> filteredRecipes = new ArrayList<>();
+	public List<Recipe> findRecipesWithIngredient(String ingredientName, String filePath) {
+		List<Recipe> allRecipes = this.loadRecipes(filePath);
+		List<Recipe> matchingRecipes = new ArrayList<>();
 
-		for (Recipe recipe : recipes) {
+		for (Recipe recipe : allRecipes) {
 			for (Ingredient ingredient : recipe.getIngredients()) {
 				if (ingredient.getName().equalsIgnoreCase(ingredientName)) {
-					filteredRecipes.add(recipe);
+					matchingRecipes.add(recipe);
 					break;
 				}
 			}
 		}
 
-		return filteredRecipes;
+		return matchingRecipes;
 	}
 }

@@ -1,6 +1,7 @@
 package edu.westga.cs1302.project2.view;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -39,8 +40,10 @@ public class MainWindow {
 	@FXML
 	private TextField recipeName;
 	@FXML
-    private TextArea recipeDisplayArea;
-	
+	private TextArea recipeDisplayArea;
+	@FXML
+	private RecipeLoader recipeLoader;
+
 	@FXML
 	void addIngredient(ActionEvent event) {
 		try {
@@ -73,6 +76,7 @@ public class MainWindow {
 		this.sortCriteria.getItems().add(new NameComparator());
 		this.sortCriteria.getSelectionModel().selectFirst();
 		this.sortCriteria.setOnAction(event -> this.sortIngredients());
+		this.recipeLoader = new RecipeLoader();
 	}
 
 	private void sortIngredients() {
@@ -84,57 +88,55 @@ public class MainWindow {
 
 	@FXML
 	void addIngredientToRecipe(ActionEvent event) {
-	    Ingredient selectedIngredient = this.ingredientsList.getSelectionModel().getSelectedItem();
-	    if (selectedIngredient != null) {
-	        this.recipeIngredientsList.getItems().add(selectedIngredient);
-	    }
+		Ingredient selectedIngredient = this.ingredientsList.getSelectionModel().getSelectedItem();
+		if (selectedIngredient != null) {
+			this.recipeIngredientsList.getItems().add(selectedIngredient);
+		}
 	}
-	
+
 	@FXML
 	void addRecipe(ActionEvent event) {
-	    String name = this.recipeName.getText();
-	    if (name == null || name.isEmpty()) {
-	        Alert alert = new Alert(Alert.AlertType.ERROR);
-	        alert.setHeaderText("Invalid Recipe Name");
-	        alert.setContentText("Recipe name cannot be empty.");
-	        alert.showAndWait();
-	        return;
-	    }
+		String name = this.recipeName.getText();
+		List<Ingredient> ingredients = new ArrayList<>(this.recipeIngredientsList.getItems());
+		if (name == null || name.isEmpty()) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setHeaderText("Invalid Recipe Name");
+			alert.setContentText("Recipe name cannot be empty.");
+			alert.showAndWait();
+			return;
+		}
 
-	    Recipe newRecipe = new Recipe(name);
-	    newRecipe.getIngredients().addAll(this.recipeIngredientsList.getItems());
+		Recipe newRecipe = new Recipe(name, ingredients);
+		newRecipe.getIngredients().addAll(this.recipeIngredientsList.getItems());
 
-	    try {
-	        RecipeFileManager.writeRecipeToFile(newRecipe, "recipes.txt");
-	        this.recipeIngredientsList.getItems().clear();
-	        this.recipeName.clear();
-	    } catch (IOException | IllegalStateException eE) {
-	        Alert alert = new Alert(Alert.AlertType.ERROR);
-	        alert.setHeaderText("Unable to save recipe");
-	        alert.setContentText(eE.getMessage());
-	        alert.showAndWait();
-	    }
+		try {
+			RecipeFileManager.writeRecipeToFile(newRecipe, "recipes.txt");
+			this.recipeIngredientsList.getItems().clear();
+			this.recipeName.clear();
+		} catch (IOException | IllegalStateException eE) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setHeaderText("Unable to save recipe");
+			alert.setContentText(eE.getMessage());
+			alert.showAndWait();
+		}
 	}
-	
+
 	@FXML
-	void displayRecipes(ActionEvent event) {
-		String selectedIngredientName = this.ingredientsList.getSelectionModel().getSelectedItem() != null
-				? this.ingredientsList.getSelectionModel().getSelectedItem().getName()
-				: null;
+	void displayRecipes() {
+		Ingredient selectedIngredient = this.ingredientsList.getSelectionModel().getSelectedItem();
 
-        if (selectedIngredientName == null) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("No Ingredient Selected");
-            alert.setContentText("Please select an ingredient to display recipes.");
-            alert.showAndWait();
-            return;
-        }
+		if (selectedIngredient == null) {
+			this.recipeDisplayArea.setText("No ingredient selected.");
+			return;
+		}
 
-        RecipeLoader recipeLoader = new RecipeLoader();
-        List<Recipe> allRecipes = recipeLoader.loadRecipes("recipes.txt");
-        List<Recipe> filteredRecipes = recipeLoader.loadRecipesByIngredient("recipes.txt", selectedIngredientName);
-        String recipesString = RecipeConverter.convertRecipeListToString(filteredRecipes);
-        this.recipeDisplayArea.setText(recipesString);
-    }
+		List<Recipe> recipes = this.recipeLoader.findRecipesWithIngredient(selectedIngredient.getName(), "recipes.txt");
+		if (recipes.isEmpty()) {
+			this.recipeDisplayArea.setText("No recipes found with the selected ingredient.");
+		} else {
+			String recipeString = RecipeConverter.convertRecipeListToString(recipes);
+			this.recipeDisplayArea.setText(recipeString);
+		}
+	}
+
 }
-

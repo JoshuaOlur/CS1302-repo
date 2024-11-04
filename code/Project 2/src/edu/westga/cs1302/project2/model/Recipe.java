@@ -7,12 +7,15 @@ public class Recipe {
     private String name;
     private List<Ingredient> ingredients;
 
-    public Recipe(String name) {
+    public Recipe(String name, List<Ingredient> ingredients) {
         if (name == null || name.isEmpty()) {
             throw new IllegalArgumentException("Recipe name cannot be null or empty.");
         }
+        if (ingredients == null || ingredients.isEmpty()) {
+            throw new IllegalArgumentException("Ingredients cannot be null or empty.");
+        }
         this.name = name;
-        this.ingredients = new ArrayList<>();
+        this.ingredients = new ArrayList<>(ingredients);
     }
 
     public String getName() {
@@ -20,10 +23,11 @@ public class Recipe {
     }
 
     public List<Ingredient> getIngredients() {
-        return this.ingredients;
+        return new ArrayList<>(this.ingredients);
     }
 
-    public void addIngredient(Ingredient ingredient) {
-        this.ingredients.add(ingredient);
+    @Override
+    public String toString() {
+        return this.name + ": " + this.ingredients.toString();
     }
 }
