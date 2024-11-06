@@ -1,8 +1,6 @@
 package edu.westga.cs1302.password_generator.view;
 
-import edu.westga.cs1302.password_generator.model.PasswordGenerator;
 import edu.westga.cs1302.password_generator.viewmodel.PasswordGeneratorViewModel;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
