@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 /**
@@ -25,11 +25,11 @@ public class MainWindow {
 	@FXML
 	private TextField minimumLength;
 	@FXML
-	private TextArea output;
-	@FXML
 	private Label errorTextLabel;
 	@FXML
 	private Button generatePasswordButton;
+	@FXML
+	private ListView<String> passwordsListView;
 
 	private ViewModel vm;
 
@@ -41,10 +41,10 @@ public class MainWindow {
 		this.vm.getRequireDigits().bind(this.mustIncludeDigits.selectedProperty());
 		this.vm.getRequireLowercase().bind(this.mustIncludeLowerCaseLetters.selectedProperty());
 		this.vm.getRequireUppercase().bind(this.mustIncludeUpperCaseLetters.selectedProperty());
-		
+
 		this.vm.getMinimumLength().bind(this.minimumLength.textProperty());
 
-		this.output.textProperty().bind(this.vm.getPassword());
+		this.passwordsListView.itemsProperty().bind(this.vm.getPasswords());
 
 		this.generatePasswordButton.setOnAction((event) -> {
 			this.vm.generatePassword();
