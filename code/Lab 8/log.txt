@@ -1,0 +1,730 @@
+commit 3e9e6e435f38a089d736becbea72ad13dbdbfa06
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Nov 13 14:47:44 2024 -0500
+
+    Store List of passwords
+    
+    Added ListView that stores Password history.
+
+commit 5c67157b7d278782030b6e384513eab9f85584ec
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Nov 13 13:53:57 2024 -0500
+
+    Implement Input Validation
+    
+    Added a listener to the minimum length text area so that non valid data coudlnt be entered.
+
+commit 866f6d23efb499ba35c00c1c677e58e91629205d
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Nov 6 17:12:08 2024 -0500
+
+    Log.txt
+    
+    Added log file of commits to repo.
+
+commit 3e632ae10021215182f6b25af9a4857578be2bc4
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Nov 6 17:09:07 2024 -0500
+
+    Testing
+    
+    Implemented a testclass to test functionality of my ViewModel.
+
+commit 7eb02c81b411e24580dfd4b09c9bc258a5337767
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Nov 6 16:48:57 2024 -0500
+
+    Checkstyle
+    
+    Went back into the code to fix any lingering checkstyle errors or anything not up to coding standards.
+
+commit 9f26f8165b1d88538a76c0772dbafbe5de82dd8e
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Nov 6 16:39:33 2024 -0500
+
+    Implement ViewModel and Bind View to ViewModel
+    
+    Implemeted the viewModel and bound all logic to it.
+
+commit d3f0e2500236c1951046bff2ea125b30fba57272
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Sun Nov 3 22:14:43 2024 -0500
+
+    Log.txt
+    
+    Log wasnt actally formatted as a .txt file so I did it properly.
+
+commit 863de8155e4818f4b3f1abbd97135a565cc1917b
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Sun Nov 3 21:43:33 2024 -0500
+
+    Log.txt
+    
+    Added the commit log to the Project 2 repo.
+
+commit 4ab1c9bcb4997a2555d59927c55079586e92fc0b
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Sun Nov 3 21:38:18 2024 -0500
+
+    Testing functionality
+    
+    Made classes to test functionality of the TypeComparator class.
+
+commit 7e4710c1f120afafa662587cceb56831309790a1
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Sun Nov 3 21:28:09 2024 -0500
+
+    Testing functionality
+    
+    Made classes to test functionality of the RecipeLoader class.
+
+commit 04d684a6eafdfc45778e4174cf61572e12e72b55
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Sun Nov 3 21:20:37 2024 -0500
+
+    Testing functionality
+    
+    Made classes to test functionality of the RecipeFileManager class.
+
+commit 1d1b4303c5132941b5249b6db950b005906cc95b
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Sun Nov 3 21:15:49 2024 -0500
+
+    Testing functionality
+    
+    Made classes to test functionality of the RecipeConverter class.
+
+commit f699c5fa35c04777c229ebb9fc59e55d98a8b19f
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Sun Nov 3 21:08:47 2024 -0500
+
+    Testing functionality
+    
+    Made classes to test functionality of the recipe class.
+
+commit f6190901d59bececca47ed2f4a2bc56ee276a5fa
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Sun Nov 3 20:51:53 2024 -0500
+
+    Testing functionality
+    
+    Made test class to test the toString method in NameComparator.
+
+commit acdbaca354c9da621f15ee1064c3ee6de76796a0
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Sun Nov 3 20:23:30 2024 -0500
+
+    Testing functionality
+    
+    Made test class to test NameComparator.
+
+commit ed538b854ce4e3b03dc4b3cceeb6575ee2610176
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Sun Nov 3 20:09:28 2024 -0500
+
+    Checkstyle
+    
+    Went back to fix checkstyle issues and coding that wasnt up to proper standards.
+
+commit 832f918b9d7e8f1e680dd81a2a257e37d8531e32
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Sun Nov 3 19:46:55 2024 -0500
+
+    3.C - Connect GUI to Business Logic to
+    
+    Reformatted a good portion of the project to make implementing the displayRecipes method work properly to ensure that it can display the propery ingridient from a file.
+
+commit 116d94fb83e7ed3ab66a928c2ad83eabba55bb7f
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Sat Nov 2 15:01:41 2024 -0400
+
+    3.B-Update Business Logic
+    
+    Added RecipeLoader class to load recipes from a file with methods to load all recipes and filter by a specified ingredient.
+
+commit 58d8cedac42990b4c96b01b877b3e91f9318f380
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Sat Nov 2 14:09:28 2024 -0400
+
+    3.B – Update Business Logic to
+    
+    added static method in RecipeConverter to convert a list of recipes to a string.
+
+commit d1d15595a5c8b2ea2a4f485a4f4bfb53900f7b1b
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Sat Nov 2 13:53:21 2024 -0400
+
+    3.A – Update GUI to
+    
+    Added GUI elements to support displaying recipes that use a specified ingredient functionality not fully implemented.
+
+commit 996f0cc595b1dca291fccf5f88587b549f89ff62
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Oct 30 17:12:39 2024 -0400
+
+    Add Recipe
+    
+    Completed Add Recipe feature, including GUI updates, business logic for managing and saving recipes, and linking the GUI to business logic for adding and saving recipes.
+
+commit 3da8ac67642a46605c3fa5e2af27e093b528445a
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Oct 30 17:10:16 2024 -0400
+
+    2.C – Connect GUI to Business Logic to
+    
+    Connected GUI with business logic to support adding ingredients to a recipe and saving recipes to a file.
+
+commit f4735621ab0462cee2858cf20905b4715e70b37f
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Oct 30 16:05:12 2024 -0400
+
+    2.B – Update Business Logic to
+    
+    Implemented Recipe class for recipe storage RecipeConverter class for converting recipes to string format and RecipeFileManager class for saving recipes to a file with duplicate name handling and file error exceptions.
+
+commit 24556724217d916edc494aacd84e623ae20111f1
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Oct 30 15:40:04 2024 -0400
+
+    2.A – Update GUI to
+    
+    Updated GUI to support adding recipes, with a ListView for recipe ingredients, buttons for adding ingredients to a recipe, and a TextField for naming a recipe however not implemented yet.
+
+commit a38c4b2b18ed2fd114118edbc4086af0d5690992
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Sun Oct 27 18:27:37 2024 -0400
+
+    SortBy Type or Name
+    
+    Completed SortBy Type or Name feature, including GUI updates comparators for sorting by type or name and connected logic to sort ingredients after each addition or removal.
+
+commit cd1ffb8942563a04adfa7494b0a3e78a16a8310f
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Sun Oct 27 18:16:40 2024 -0400
+
+    1.C – Connect GUI to Business Logic to
+    
+    Connected GUI to business logic initializing sortCriteria ComboBox with TypeComparator and NameComparator, and sorted ingredients upon criteria selection.
+
+commit afd52b3d0c8db35d523be800c70154b72e249563
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Sun Oct 27 17:58:18 2024 -0400
+
+    1.B – Update Business Logic to
+    
+    Implemented TypeComparator and NameComparator classes to compare ingredients by type and name.
+
+commit 42d3de8d49c4ac9ec536083fb88335ff13f17e08
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Sun Oct 27 17:44:20 2024 -0400
+
+    1.A – Update GUI to
+    
+    Updated GUI to include a ComboBox for selecting sort criteria, labeled "Sort by" above the ComboBox.
+
+commit 9b659e0c57cf6b9fc906c0f5ad07b8aed4a3ad2f
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Sun Oct 27 16:46:14 2024 -0400
+
+    Starting Project 2
+    
+    Making this commit to make a note to myself that project 2 is being started.
+
+commit c68a7d0451a686b4a70a6cb5ddb6c8ade37716ef
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Oct 16 17:16:31 2024 -0400
+
+    Deleting extra files
+    
+    Merging unrelated histories brought over duplicate files that were
+    not deleted properly.
+
+commit b07b0678931101f0323bbb697be73275573653a5
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Oct 16 17:12:39 2024 -0400
+
+    Correcting missing deletions
+    
+    Previous commit neglected to include deletion of files.
+
+commit f0b74f1ae4bdbf96c8bb068a7f52e3b5e62609ea
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Oct 16 17:10:39 2024 -0400
+
+    Merging unrelated histories
+    
+    Accidentally created repo-ception, this commit should fix that.
+
+commit 8f086ac4d56b5aca48cf98940dfedb03aa8aa11d
+Merge: 8c92661 74b4247
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Oct 16 17:08:17 2024 -0400
+
+    Merge branch 'featuresep' of https://github.com/JoshuaOlur/CS1302-repo into featuresep
+
+commit 74b4247179653751178d0525316442ced467940f
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Oct 16 16:35:12 2024 -0400
+
+    Link and Log
+    
+    Added the log and link to the github repo.
+
+commit 163102dae9e61b5da27a5f5752cf87c4378ead63
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Oct 16 16:30:43 2024 -0400
+
+    Functionality Implementation
+    
+    Implemented the functionality to sort the Bills by acending and decending order.
+
+commit fd8a7fae66077b73eaff18d42b6bf4c823a39a05
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Tue Oct 15 17:33:06 2024 -0400
+
+    Fixing up issues
+    
+    Fixed an error where saving as a specific format and loading would break the code as it would not be formatted correctly.
+
+commit 318a800bbf228554035b9549f949d63c33eb2e5b
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Tue Oct 15 16:59:49 2024 -0400
+
+    Implementation
+    
+    Implemented the functionality to save the file as both csv and tsv.
+
+commit 0686b1fb313c70cd972df8ba5030b79774301d43
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Mon Oct 14 17:28:47 2024 -0400
+
+    TSV and CSV
+    
+    Added Tsv and Csv child classes to each handle displaying of information in a certain fashion.
+
+commit bf14b380ab815e3937076b4fe3db9ec84f6689ad
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Mon Oct 14 17:22:00 2024 -0400
+
+    Refactoring
+    
+    Refactored the BillPersistenceManager class to be an abstract class to be inherited by child classes.
+
+commit 82f6964bd92de7b3b560acb4e85bd4a1db72d6a1
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Mon Oct 14 13:54:03 2024 -0400
+
+    Starting Lab 6
+    
+    Making this commit to indicate lab 6 being started.
+
+commit 8c92661752b13f99045c93f87b687e4c31960066
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Thu Oct 3 17:31:10 2024 -0400
+
+    Link to Repo
+    
+    Added link to github repo in project as specified.
+
+commit d74421de4f93245c4b7d6c085ae74dcf1d1c8dc8
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Thu Oct 3 17:25:08 2024 -0400
+
+    Adding commits from nested repo
+    
+    commit 10ece933b97371f945bd1e493816b8a0940bd293
+    Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+    Date:   Thu Oct 3 14:44:21 2024 -0400
+    
+        Merge
+    
+        Merged my feature branch changed and proceded to delete my feature branch tested to make sure everything is working properly.
+    
+    commit fa700a6ad211af0922621a24613d6c338b2e0b06
+    Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+    Date:   Thu Oct 3 14:31:15 2024 -0400
+    
+        Testing load data
+    
+        Created class to test the loadBillData method.
+    
+    commit 9603d2c319f9484140c8ccc0edd850aecc0df9e0
+    Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+    Date:   Thu Oct 3 14:24:54 2024 -0400
+    
+        Testing for SaveBillData
+    
+        Created and implemented a class to test the BillData method.
+    
+    commit 0ccfa7f39405c3eb3b9229d306671e6ae8de1792
+    Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+    Date:   Wed Oct 2 18:14:41 2024 -0400
+    
+        Functionality Implementation
+    
+        Implemented the functionality to load the data file when the gui is loaded.
+    
+    commit 65648ee3b1b0e0041ed41266e8b01d7931952c7d
+    Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+    Date:   Wed Oct 2 16:08:18 2024 -0400
+    
+        refactoring
+    
+        Refactored some code to make it so that the saveBillData displayed the values properly in the data.txt file.
+    
+    commit 58b2854fed6a4c67773d89b260ee573e2886ddff
+    Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+    Date:   Wed Oct 2 15:20:51 2024 -0400
+    
+        Implimented functionality
+    
+        Implimented some functionality for the saveBillData method in the BillPersistenceManager class.
+    
+    commit 82b2bab7b64962945c1b36b2dfa2e788b8a12f85
+    Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+    Date:   Wed Oct 2 14:19:48 2024 -0400
+    
+        Starting
+    
+        Starting to work on lab 5
+
+commit 71a80cbfb582c97b4966e535d5709b7b35c251ed
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Thu Oct 3 17:19:39 2024 -0400
+
+    Removed Nested Repos
+    
+    Removed nested repo to attempt to fix an issue with pushing to github.
+
+commit 2bc95c493c7e1cca8a4f50192eed758ddd16c1b1
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Thu Oct 3 15:32:13 2024 -0400
+
+    Attempting to fix push errors again
+    
+    Trying to Push from the main cloned repo on the local machines storage to see if it works
+
+commit 0d2fb04f65568bbff6c095455e453161ad9c8fc0
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Sep 25 15:05:03 2024 -0400
+
+    added class path
+    
+    Added my classpath to make it green because it was scarring me.
+
+commit 167c77a58cf7748c708246285d36a20d30787abd
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Sep 25 15:03:33 2024 -0400
+
+    Log
+    
+    Redid my Log.
+
+commit 41bddb40e9fc189a117b2e171ce71720f1619565
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Sep 25 14:54:03 2024 -0400
+
+    Fixing error
+    
+    Accidentally got rid of toString method added it back.
+
+commit 4abe2a062d0c43146b9c42c4f4f99eb3694c3042
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Sep 25 14:32:31 2024 -0400
+
+    Reference to Git repo
+    
+    Added a file to reference the link to my github repo.
+
+commit a20511e9cb72fce6aef4e3da59cabe9f785c0564
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Sep 25 14:30:07 2024 -0400
+
+    Tested Food Constructor
+    
+    Tested the Food class constructor to make sure its functioning properly.
+
+commit 236f1723100717ebfcbcd6c147904a15bb7eb3e9
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Sep 25 14:18:52 2024 -0400
+
+    Checkstyle
+    
+    Went back to fix checkstyle errors and anything not up to proper standards.
+
+commit d84f54714a071cbffb677feff942032b42a8b323
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Sep 25 14:08:11 2024 -0400
+
+    Testing for static method
+    
+    Created testing for static method in the PantryUtility class.
+
+commit 40210e1d1de59b948148452789e5896dbadaf366
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Tue Sep 24 17:57:01 2024 -0400
+
+    Refactoring
+    
+    Refactored some code in the MainWindow class to make more streamlined.
+
+commit e3c4b2aed130dbed55f981559c7be6a2354e8867
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Tue Sep 24 17:13:54 2024 -0400
+
+    Add static method to calculate total food quantity
+    
+    Added a static method  in the utility class that sums the quantity of all food items in the pantry.
+
+commit 169916c225b82f762cdc46e6098eea402e2f1ec9
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Tue Sep 24 17:00:48 2024 -0400
+
+    Add Package and PantryUtility class
+    
+    Added the package and class to house the method that views the current count of all items in the listView.
+
+commit f66ce687a2f8848f963a60c00c0cb4384912511c
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Tue Sep 24 16:47:03 2024 -0400
+
+    Add button for viewing count
+    
+    Added a button to the UI for viewing current count of food items in pantry.
+
+commit 7ed77fe6cc306cf04ed7a97930e884c81627a52d
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Tue Sep 24 16:33:40 2024 -0400
+
+    Add method to remove selected food
+    
+    Implemented the actual method in MainWindow class to remove the selected food item from the ListView.
+
+commit c8c79e46986f8def03eb94d4d2e827849f2812ae
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Tue Sep 24 16:30:42 2024 -0400
+
+    Add button for removing food from the pantry
+    
+    Added a button to the UI for removing the selected food item from the ListView.
+
+commit f881b414e637a1c87900c846486447631638dc12
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Tue Sep 24 16:11:42 2024 -0400
+
+    add method to decrement food quantity
+    
+    Added a method to decrement the quantity of a food item by 1 ensuring the quantity does not go below 0 in the Food class.
+
+commit a8c22876f453c8d120897eb3e5d7ae021bdf5feb
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Tue Sep 24 16:07:21 2024 -0400
+
+    add method to increment food quantity
+    
+    Added a method to increment the quantity of a food item by 1 in the food class.
+
+commit 1d762c1eda66d28d9183318d8eeae883474be5a9
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Mon Sep 23 19:59:03 2024 -0400
+
+    Add button to decrement food quantity
+    
+    Implemented method and button to decrease the quantity by 1.
+
+commit b3493ce3d2fe77dd53ce3c5c7f1bc87a916b73c5
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Mon Sep 23 19:55:31 2024 -0400
+
+    Add button to increment food quantity
+    
+    Implemented method and added button to increase the quantity by 1.
+
+commit 5a034314197668b1690dc6ff82fa1b3b618fc60f
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Mon Sep 23 19:51:25 2024 -0400
+
+    Add UI for setting food quantity
+    
+    Added a label, textfield, and button for setting the quantity of a selected footItem.
+
+commit 587c30de9e7c62fa04e3a1425aa1780f82107e39
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Mon Sep 23 19:30:45 2024 -0400
+
+    Initialize ComboBox with food types
+    
+    Updated the initialize method to have the types specified in the instructions.
+
+commit f17b699ac302cdc155c8dafa12e1ea2ce938930b
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Mon Sep 23 18:51:56 2024 -0400
+
+    Add toString method to return food name and quantity
+    
+    Added a toString method that displays the name of the food and its quantity.
+
+commit 0ec533216687dc123992cf7b8698528324e8a746
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Mon Sep 23 18:50:41 2024 -0400
+
+    Add setter for quantity field
+    
+    Added a method to allow modification of the quantity field after initialization.
+
+commit e86841101008e19abe6b3b4de9c6307c84df8c8d
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Mon Sep 23 18:48:47 2024 -0400
+
+    Add getter methods for name, type, and quantity
+    
+    Added methods to retrieve the name, type, and quantity of the food.
+
+commit 27234a52ec1bca07a848fb522f16b5163b5a5b90
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Mon Sep 23 18:45:28 2024 -0400
+
+    Add Food class with name, type, and quantity fields
+    
+    Created the Food class with final name and type fields, a default quantity, and a two-parameter constructor.
+
+commit f507a07f5d43a844e8203f77a185f8737442c30d
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Mon Sep 23 18:31:50 2024 -0400
+
+    Complete method to add food to pantry
+    
+    Updated handleAddFood method to add the new food item to the ListView and clear the input fields after submission.
+
+commit 0228b9a3a8365a0cb805aad89761a724c373adda
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Mon Sep 23 18:22:34 2024 -0400
+
+    Add ListView for pantry items
+    
+    Added a ListView to display food items in the pantry and initialized an ObservableList to store the items.
+
+commit b895618d971fcadae8962f59d33dad274ed786de
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Mon Sep 23 18:03:51 2024 -0400
+
+    Add button and method to submit new food
+    
+    Added a button to trigger the process of submitting a new food item, along with the initial version of the handleAddFood method.
+
+commit 7e38675f51a5788f8833673209547865eea7f271
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Mon Sep 23 17:52:16 2024 -0400
+
+    Add ComboBox for food type selection
+    
+    Added a label and a ComboBox to allow the user to select the type of the new food item.
+
+commit 349ca6c85ffa1f12b9349007d8158397d0ac41a6
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Mon Sep 23 17:39:09 2024 -0400
+
+    Add TextField for food name input
+    
+    Added a label and a TextField to allow the user to enter the name of a new food item.
+
+commit 5c91068c5babed909c304302ba42fe2b4d1f641f
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Mon Sep 23 16:40:47 2024 -0400
+
+    Starting Project
+    
+    Putting this commit as a note of when I started the project.
+
+commit 41ec93d5fd64e73dde4536e4ddb5a50ea23ee7b1
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Sep 18 16:41:48 2024 -0400
+
+    Testing the Tax, Tip and Total
+    
+    Created tests for the Tax, Tip and Total  methods in the Bill calculator class.
+
+commit c8d05fed4adfd6b2c2ab63df9eee4d610035a529
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Sep 18 16:32:51 2024 -0400
+
+    Tests for Substotal
+    
+    Created Junit test cases for the subtotal method.
+
+commit 32ddde1a6ce72e6a6eba5e2394d50e01ef121317
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Sep 18 16:13:31 2024 -0400
+
+    Fixed errors
+    
+    Fixed errors in the BillTextifier class as a result of not making things static properly.
+
+commit e2a92b9b7df15b4a69060ee2e5221827fe9e3b77
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Sep 18 15:53:47 2024 -0400
+
+    Refactored
+    
+    edited the Bill class by removing the math methods to put them in the BillCalculator class.
+
+commit 048dc00c6011c26fe47a32378703a1b5d2f5979f
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Sep 18 14:57:31 2024 -0400
+
+    Feild Refactoring
+    
+    Refactored the feilds in the BillItem class to be final as according to the rules
+
+commit ad8d0232c82ad0833fddffe3342b11105d93b700
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Sep 18 14:32:33 2024 -0400
+
+    Starting
+    
+    Cloned repo and nested it in the code file
+
+commit 768f5a48dc05b54a66fd69fcacc248478a7ebe18
+Merge: 2622592 ba99bec
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Sep 11 16:58:38 2024 -0400
+
+    Merge branch 'master' into featuresep
+
+commit 2622592f0d8e16394a52914db339309635f4bb46
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Sep 11 16:52:40 2024 -0400
+
+    Avarage functionality
+    
+    Added the functionality to get the avarage of students currently in the list
+
+commit 2f0e8d24618683350bc76818d58e9f2bc0254d22
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Sep 11 16:22:10 2024 -0400
+
+    Reformatting for grade
+    
+    Reformatted the gui to display the student grade when clicked in the gui
+
+commit 86f70ef9645bf2d20e64f540f29254c9e4350327
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Sep 11 15:05:51 2024 -0400
+
+    formatted for proper grade showing
+    
+    Formatted the to string method so that it shows the grade on the gui as well
+
+commit ba99bec5b5fb82f950d359f2f61f4d8bb7844da1
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Wed Sep 11 14:38:06 2024 -0400
+
+    Added a README to the repo
+
+commit 4ebfae54c82863bd4aa76271bce2fa253b2050e4
+Author: Joshua O Oyebode-Oluranti <jo00087@my.westga.edu>
+Date:   Tue Sep 10 16:41:59 2024 -0400
+
+    First Commit
+    
+    Made the repo and making the first commit
