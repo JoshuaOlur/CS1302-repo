@@ -24,3 +24,7 @@ veg test
 veggie
 Tester
 meat
+Testert
+test, meat, test,
+bit test
+bits

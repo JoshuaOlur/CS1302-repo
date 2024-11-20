@@ -45,6 +45,7 @@ public class MainWindow {
 
 	@FXML
 	void initialize() {
+		this.enablePassowrd();
 		this.vm = new ViewModel();
 		this.vm.getRequireDigits().bind(this.mustIncludeDigits.selectedProperty());
 		this.vm.getRequireLowercase().bind(this.mustIncludeLowerCaseLetters.selectedProperty());
@@ -72,5 +73,23 @@ public class MainWindow {
 		alert.setContentText("Author: Joshua Oluranti");
 		alert.setHeaderText("A Project with the purpose of of creating random really bad passwords");
 		alert.showAndWait();
+	}
+
+	@FXML
+	void enablePassowrd() {
+		this.minimumLength.textProperty().addListener((observable, oldValue, newValue) -> {
+			try {
+				int length = Integer.parseInt(newValue);
+				if (length < 1) {
+					this.generatePasswordButton.setDisable(true);
+				} else {
+					this.generatePasswordButton.setDisable(false);
+				}
+			} catch (Exception ex) {
+				this.generatePasswordButton.setDisable(true);
+			}
+		}
+
+		);
 	}
 }

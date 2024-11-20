@@ -21,13 +21,13 @@ public class TestCompare {
     void testTypeLessThan() {
         Ingredient ingredient1 = new Ingredient("Chicken", "Meat");
         Ingredient ingredient2 = new Ingredient("Carrot", "Vegetable");
-        assertTrue(comparator.compare(ingredient1, ingredient2) > 0);
+        assertTrue(comparator.compare(ingredient1, ingredient2) < 0);
     }
 
     @Test
     void testTypeGreaterThan() {
         Ingredient ingredient1 = new Ingredient("Banana", "Fruit");
         Ingredient ingredient2 = new Ingredient("Apple", "Fruit");
-        assertTrue(comparator.compare(ingredient1, ingredient2) < 0);
+        assertTrue(comparator.compare(ingredient1, ingredient2) > 0);
     }
 }

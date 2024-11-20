@@ -1,4 +1,5 @@
 Bob
+goat	70000.0
 ewrefef	5555.0
 jersh	741.0
 wurt	478.0
