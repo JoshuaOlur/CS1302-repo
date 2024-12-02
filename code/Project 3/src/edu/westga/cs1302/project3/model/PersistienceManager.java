@@ -2,6 +2,7 @@ package edu.westga.cs1302.project3.model;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -22,7 +23,7 @@ public class PersistienceManager {
 	 * @throws IllegalArgumentException if taskManager or filePath is null
 	 * @throws IOException if an I/O error occurs
 	 */
-	public static void saveTasks(TaskManager taskManager, String filePath) throws IOException {
+	public  void saveTasks(TaskManager taskManager, String filePath) throws IOException {
 		if (taskManager == null) {
 			throw new IllegalArgumentException("TaskManager cannot be null.");
 		}
@@ -41,18 +42,18 @@ public class PersistienceManager {
 	/**
 	 * Loads tasks from the specified file into a new TaskManager.
 	 * 
-	 * @param filePath the path of the file to load tasks from
+	 * @param file the file being loaded
 	 * @return a TaskManager containing the loaded tasks
 	 * @throws IllegalArgumentException if filePath is null
 	 * @throws IOException if an I/O error occurs
 	 */
-	public static TaskManager loadTasks(String filePath) throws IOException {
-		if (filePath == null) {
+	public  TaskManager loadTasks(File file) throws IOException {
+		if (file == null) {
 			throw new IllegalArgumentException("File path cannot be null.");
 		}
 
 		TaskManager taskManager = new TaskManager();
-		try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+		try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
 			String line;
 			while ((line = reader.readLine()) != null) {
 				String[] parts = line.split("\t", 2);
