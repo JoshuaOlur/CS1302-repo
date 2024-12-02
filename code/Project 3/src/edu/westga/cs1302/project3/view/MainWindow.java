@@ -88,11 +88,11 @@ public class MainWindow {
 	@FXML
 	void handleFileSave(ActionEvent event) {
 		FileChooser fileChooser = new FileChooser();
-		fileChooser.setTitle("Open txt File");
+		fileChooser.setTitle("Saving .txt File");
 		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"),
 				new ExtensionFilter("All Files", "*.*"));
 		Window window = this.pane.getScene().getWindow();
-		File selectedFile = fileChooser.showOpenDialog(window);
+		File selectedFile = fileChooser.showSaveDialog(window);
 		if (selectedFile != null) {
 			this.vm.saveData(selectedFile);
 		}

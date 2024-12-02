@@ -48,4 +48,15 @@ public class MainWindowViewModel {
 				eE.printStackTrace();
 			}
 	}
+
+	public void saveData (File selectedFile) {
+		try {
+			this.pm.saveTasks(this.tm, selectedFile);
+		} catch (IOException eE) {
+			
+			eE.printStackTrace();
+		}
+		this.updateDisplay();
+
+}
 }

@@ -19,19 +19,19 @@ public class PersistienceManager {
 	 * Saves the tasks from the given TaskManager to the specified file.
 	 * 
 	 * @param taskManager the TaskManager containing tasks to save
-	 * @param filePath    the path of the file to save tasks to
+	 * @param file the file being saved
 	 * @throws IllegalArgumentException if taskManager or filePath is null
 	 * @throws IOException if an I/O error occurs
 	 */
-	public  void saveTasks(TaskManager taskManager, String filePath) throws IOException {
+	public  void saveTasks(TaskManager taskManager, File file) throws IOException {
 		if (taskManager == null) {
 			throw new IllegalArgumentException("TaskManager cannot be null.");
 		}
-		if (filePath == null) {
+		if (file == null) {
 			throw new IllegalArgumentException("File path cannot be null.");
 		}
 
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
 			for (Task task : taskManager.getTasks()) {
 				writer.write(task.getTitle() + "\t" + task.getDescription());
 				writer.newLine();
