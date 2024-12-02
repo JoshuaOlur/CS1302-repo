@@ -48,6 +48,6 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task: " + this.title + " - " + this.description;
+        return "Task: " + this.title;
     }
 }

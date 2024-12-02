@@ -7,4 +7,5 @@ package edu.westga.cs1302.project3.view;
  */
 public class AddTaskWindow {
 
+	
 }
