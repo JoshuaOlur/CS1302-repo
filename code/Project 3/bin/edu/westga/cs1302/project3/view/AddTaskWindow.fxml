@@ -12,7 +12,7 @@
       <Label layoutX="95.0" layoutY="68.0" text="Description" />
       <TextArea fx:id="descriptionTextArea" layoutX="14.0" layoutY="93.0" prefHeight="154.0" prefWidth="218.0" />
       <TextField fx:id="titleTextField" layoutX="15.0" layoutY="33.0" prefHeight="25.0" prefWidth="218.0" />
-      <Button layoutX="48.0" layoutY="267.0" mnemonicParsing="false" text="Add Task" />
-      <Button layoutX="137.0" layoutY="267.0" mnemonicParsing="false" text="Cancel" />
+      <Button fx:id="addTaskButton" layoutX="48.0" layoutY="267.0" mnemonicParsing="false" onAction="#addTask" text="Add Task" />
+      <Button fx:id="cancelButton" layoutX="137.0" layoutY="267.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
    </children>
 </AnchorPane>

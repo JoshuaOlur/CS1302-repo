@@ -18,16 +18,16 @@ public class MainWindowViewModel {
 	private ListProperty<Task> taskList;
 	private TaskManager tm;
 	private PersistienceManager pm;
-	
+
 	private StringProperty description;
-    private StringProperty title;
+	private StringProperty title;
 
 	public MainWindowViewModel() {
 		this.tm = new TaskManager();
 		this.taskList = new SimpleListProperty<Task>(FXCollections.observableArrayList());
 		this.description = new SimpleStringProperty();
 		this.title = new SimpleStringProperty();
-		
+
 		this.pm = new PersistienceManager();
 		Task sampleTask = new Task("Cleaning", "Task of cleaning room");
 		Task sampleTask2 = new Task("Eating", "Task of eating room");
@@ -42,11 +42,11 @@ public class MainWindowViewModel {
 	public ListProperty<Task> getTaskList() {
 		return this.taskList;
 	}
-	
+
 	public StringProperty getDescription() {
 		return this.description;
 	}
-	
+
 	public StringProperty getTitle() {
 		return this.title;
 	}
@@ -56,20 +56,20 @@ public class MainWindowViewModel {
 	}
 
 	public void loadData(File selectedFile) {
-			this.tm.getTasks().clear();
-			try {
-				this.tm = this.pm.loadTasks(selectedFile);
-				this.updateDisplay();
-			} catch (Exception eE) {
-				Alert alert = new Alert(Alert.AlertType.ERROR);
-				alert.setTitle("ERROR");
-				alert.setContentText("SOMETHING WENT WRONG");
-				alert.setHeaderText("FIX IT");
-				alert.showAndWait();
-			}
+		this.tm.getTasks().clear();
+		try {
+			this.tm = this.pm.loadTasks(selectedFile);
+			this.updateDisplay();
+		} catch (Exception eE) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("ERROR");
+			alert.setContentText("SOMETHING WENT WRONG");
+			alert.setHeaderText("FIX IT");
+			alert.showAndWait();
+		}
 	}
 
-	public void saveData (File selectedFile) {
+	public void saveData(File selectedFile) {
 		try {
 			this.pm.saveTasks(this.tm, selectedFile);
 		} catch (IOException eE) {
@@ -78,9 +78,10 @@ public class MainWindowViewModel {
 			alert.setContentText("file can’t be overwritten");
 			alert.setHeaderText("FIX IT");
 			alert.showAndWait();
-			
+
 		}
 		this.updateDisplay();
 
-}
+	}
+
 }
