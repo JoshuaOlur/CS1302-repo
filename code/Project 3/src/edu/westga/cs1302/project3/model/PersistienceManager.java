@@ -19,11 +19,11 @@ public class PersistienceManager {
 	 * Saves the tasks from the given TaskManager to the specified file.
 	 * 
 	 * @param taskManager the TaskManager containing tasks to save
-	 * @param file the file being saved
+	 * @param file        the file being saved
 	 * @throws IllegalArgumentException if taskManager or filePath is null
-	 * @throws IOException if an I/O error occurs
+	 * @throws IOException              if an I/O error occurs
 	 */
-	public  void saveTasks(TaskManager taskManager, File file) throws IOException {
+	public void saveTasks(TaskManager taskManager, File file) throws IOException {
 		if (taskManager == null) {
 			throw new IllegalArgumentException("TaskManager cannot be null.");
 		}
@@ -32,8 +32,9 @@ public class PersistienceManager {
 		}
 
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+			writer.write("Task:");
 			for (Task task : taskManager.getTasks()) {
-				writer.write(task.getTitle() + "\t" + task.getDescription());
+				writer.write(task.getTitle() + "," + task.getDescription());
 				writer.newLine();
 			}
 		}
@@ -45,15 +46,18 @@ public class PersistienceManager {
 	 * @param file the file being loaded
 	 * @return a TaskManager containing the loaded tasks
 	 * @throws IllegalArgumentException if filePath is null
-	 * @throws IOException if an I/O error occurs
+	 * @throws IOException              if an I/O error occurs
 	 */
-	public  TaskManager loadTasks(File file) throws IOException {
+	public TaskManager loadTasks(File file) throws IOException {
 		if (file == null) {
-			throw new IllegalArgumentException("File path cannot be null.");
+			throw new IllegalArgumentException();
 		}
 
 		TaskManager taskManager = new TaskManager();
 		try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+			if (!reader.readLine().equals("Task:")) {
+				throw new IllegalArgumentException();
+			}
 			String line;
 			while ((line = reader.readLine()) != null) {
 				String[] parts = line.split("\t", 2);

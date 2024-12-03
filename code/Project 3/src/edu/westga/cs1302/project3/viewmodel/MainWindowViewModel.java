@@ -10,6 +10,7 @@ import edu.westga.cs1302.project3.model.TaskManager;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
+import javafx.scene.control.Alert;
 
 public class MainWindowViewModel {
 	private ListProperty<Task> taskList;
@@ -43,9 +44,12 @@ public class MainWindowViewModel {
 			try {
 				this.tm = this.pm.loadTasks(selectedFile);
 				this.updateDisplay();
-			} catch (IOException eE) {
-				System.out.println("Somethinw went wrong");// redo this as alert tommrow 
-				eE.printStackTrace();
+			} catch (Exception eE) {
+				Alert alert = new Alert(Alert.AlertType.ERROR);
+				alert.setTitle("ERROR");
+				alert.setContentText("SOMETHING WENT WRONG");
+				alert.setHeaderText("FIX IT");
+				alert.showAndWait();
 			}
 	}
 
@@ -53,8 +57,12 @@ public class MainWindowViewModel {
 		try {
 			this.pm.saveTasks(this.tm, selectedFile);
 		} catch (IOException eE) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("ERROR");
+			alert.setContentText("file can’t be overwritten");
+			alert.setHeaderText("FIX IT");
+			alert.showAndWait();
 			
-			eE.printStackTrace();
 		}
 		this.updateDisplay();
 

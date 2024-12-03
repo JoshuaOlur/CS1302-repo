@@ -88,9 +88,9 @@ public class MainWindow {
 	@FXML
 	void handleFileSave(ActionEvent event) {
 		FileChooser fileChooser = new FileChooser();
-		fileChooser.setTitle("Saving .txt File");
+		fileChooser.setTitle("Saving .txt or csv File");
 		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"),
-				new ExtensionFilter("All Files", "*.*"));
+				new ExtensionFilter("Csv Files", "*.csv"));
 		Window window = this.pane.getScene().getWindow();
 		File selectedFile = fileChooser.showSaveDialog(window);
 		if (selectedFile != null) {
