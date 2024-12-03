@@ -9,6 +9,8 @@ import edu.westga.cs1302.project3.model.Task;
 import edu.westga.cs1302.project3.model.TaskManager;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.scene.control.Alert;
 
@@ -16,10 +18,16 @@ public class MainWindowViewModel {
 	private ListProperty<Task> taskList;
 	private TaskManager tm;
 	private PersistienceManager pm;
+	
+	private StringProperty description;
+    private StringProperty title;
 
 	public MainWindowViewModel() {
 		this.tm = new TaskManager();
 		this.taskList = new SimpleListProperty<Task>(FXCollections.observableArrayList());
+		this.description = new SimpleStringProperty();
+		this.title = new SimpleStringProperty();
+		
 		this.pm = new PersistienceManager();
 		Task sampleTask = new Task("Cleaning", "Task of cleaning room");
 		Task sampleTask2 = new Task("Eating", "Task of eating room");
@@ -33,6 +41,14 @@ public class MainWindowViewModel {
 
 	public ListProperty<Task> getTaskList() {
 		return this.taskList;
+	}
+	
+	public StringProperty getDescription() {
+		return this.description;
+	}
+	
+	public StringProperty getTitle() {
+		return this.title;
 	}
 
 	private void updateDisplay() {
