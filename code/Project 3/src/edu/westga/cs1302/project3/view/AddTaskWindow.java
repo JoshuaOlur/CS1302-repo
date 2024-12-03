@@ -14,31 +14,34 @@ import javafx.scene.control.TextField;
  * @version Fall 2024
  */
 public class AddTaskWindow {
-    @FXML
-    private Button addTaskButton;
+	@FXML
+	private Button addTaskButton;
 
-    @FXML
-    private Button cancelButton;
+	@FXML
+	private Button cancelButton;
 	@FXML
 	private TextArea descriptionTextArea;
 
 	@FXML
 	private TextField titleTextField;
-
+	private MainWindowViewModel vm;
 
 	public void bindToVM(MainWindowViewModel vm) {
+		this.vm = vm;
 		this.descriptionTextArea.textProperty().bindBidirectional(vm.getDescription());
 		this.titleTextField.textProperty().bindBidirectional(vm.getTitle());
+
 	}
-	
-	 	@FXML
-	    void cancel(ActionEvent event) {
-	 		this.titleTextField.getParent().getScene().getWindow().hide();
-	 		
-	    }
 
-	    @FXML
-	    void addTask(ActionEvent event) {
+	@FXML
+	void cancel(ActionEvent event) {
+		this.titleTextField.getParent().getScene().getWindow().hide();
 
-	    }
+	}
+
+	@FXML
+	void addTask(ActionEvent event) {
+		this.vm.addTask();
+		this.titleTextField.getParent().getScene().getWindow().hide();
+	}
 }

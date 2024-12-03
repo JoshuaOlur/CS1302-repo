@@ -8,11 +8,16 @@ import edu.westga.cs1302.project3.model.PersistienceManager;
 import edu.westga.cs1302.project3.model.Task;
 import edu.westga.cs1302.project3.model.TaskManager;
 import javafx.beans.property.ListProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
+import javafx.stage.Stage;
 
 public class MainWindowViewModel {
 	private ListProperty<Task> taskList;
@@ -37,7 +42,11 @@ public class MainWindowViewModel {
 		this.tm.addTask(sampleTask2);
 		this.tm.addTask(sampleTask3);
 		this.updateDisplay();
+
 	}
+
+
+
 
 	public ListProperty<Task> getTaskList() {
 		return this.taskList;
@@ -82,6 +91,15 @@ public class MainWindowViewModel {
 		}
 		this.updateDisplay();
 
+	}
+
+	public void addTask() {
+		String title = this.title.get();
+		String description = this.description.get();
+		Task task = new Task(title, description);
+		this.tm.getTasks().add(task);
+		this.taskList.add(task);
+		
 	}
 
 }

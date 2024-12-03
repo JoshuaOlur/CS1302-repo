@@ -85,7 +85,6 @@ public class MainWindow {
 
 			AddTaskWindow propertyCodebehind = (AddTaskWindow) loader.getController();
 			propertyCodebehind.bindToVM(this.vm);
-
 			setPropertyStage.showAndWait();
 		} catch (IOException error) {
 			Alert alert = new Alert(AlertType.ERROR);
