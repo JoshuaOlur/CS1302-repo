@@ -27,6 +27,11 @@ public class AddTaskWindow {
 	private TextField titleTextField;
 	private MainWindowViewModel vm;
 
+	/**
+     * Binds the view elements to the specified MainWindowViewModel.
+     * 
+     * @param vm the view model to bind to
+     */
 	public void bindToVM(MainWindowViewModel vm) {
 		this.vm = vm;
 		this.descriptionTextArea.textProperty().bindBidirectional(vm.getDescription());

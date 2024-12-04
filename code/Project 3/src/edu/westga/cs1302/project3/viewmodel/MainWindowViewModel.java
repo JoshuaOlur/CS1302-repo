@@ -1,24 +1,29 @@
 package edu.westga.cs1302.project3.viewmodel;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+
 import java.io.IOException;
 
 import edu.westga.cs1302.project3.model.PersistienceManager;
 import edu.westga.cs1302.project3.model.Task;
 import edu.westga.cs1302.project3.model.TaskManager;
 import javafx.beans.property.ListProperty;
-import javafx.beans.property.ObjectProperty;
+
 import javafx.beans.property.SimpleListProperty;
-import javafx.beans.property.SimpleObjectProperty;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.control.Alert;
-import javafx.stage.Stage;
 
+import javafx.scene.control.Alert;
+
+/**
+ * ViewModel for the main window of the task management application. Manages the
+ * binding between the model and the view.
+ * 
+ * @author JO
+ * @version Fall 2024
+ */
 public class MainWindowViewModel {
 	private ListProperty<Task> taskList;
 	private TaskManager tm;
@@ -27,6 +32,10 @@ public class MainWindowViewModel {
 	private StringProperty description;
 	private StringProperty title;
 
+	/**
+	 * Creates a new MainWindowViewModel and initializes the task list with sample
+	 * tasks.
+	 */
 	public MainWindowViewModel() {
 		this.tm = new TaskManager();
 		this.taskList = new SimpleListProperty<Task>(FXCollections.observableArrayList());
@@ -45,22 +54,45 @@ public class MainWindowViewModel {
 
 	}
 
+	/**
+	 * Gets the list of tasks as a property.
+	 * 
+	 * @return the task list property
+	 */
 	public ListProperty<Task> getTaskList() {
 		return this.taskList;
 	}
 
+	/**
+	 * Gets the description property.
+	 * 
+	 * @return the description property
+	 */
 	public StringProperty getDescription() {
 		return this.description;
 	}
 
+	/**
+	 * Gets the title property.
+	 * 
+	 * @return the title property
+	 */
 	public StringProperty getTitle() {
 		return this.title;
 	}
 
+	/**
+	 * Updates the displayed list of tasks based on the current task manager state.
+	 */
 	private void updateDisplay() {
 		this.taskList.setValue(FXCollections.observableArrayList(this.tm.getTasks()));
 	}
 
+	/**
+	 * Loads task data from a file and updates the task list.
+	 * 
+	 * @param selectedFile the file to load tasks from
+	 */
 	public void loadData(File selectedFile) {
 		this.tm.getTasks().clear();
 		this.taskList.clear();
@@ -76,6 +108,11 @@ public class MainWindowViewModel {
 		}
 	}
 
+	/**
+	 * Saves task data to a file.
+	 * 
+	 * @param selectedFile the file to save tasks to
+	 */
 	public void saveData(File selectedFile) {
 		try {
 			this.pm.saveTasks(this.tm, selectedFile);
@@ -92,6 +129,9 @@ public class MainWindowViewModel {
 
 	}
 
+	/**
+	 * Adds a new task to the task manager and the displayed task list.
+	 */
 	public void addTask() {
 		String title = this.title.get();
 		String description = this.description.get();
@@ -100,7 +140,12 @@ public class MainWindowViewModel {
 		this.taskList.add(task);
 
 	}
-	
+
+	/**
+	 * Removes a task from the task manager and the displayed task list.
+	 * 
+	 * @param task the task to remove
+	 */
 	public void removeTask(Task task) {
 		this.tm.removeTask(task);
 		this.taskList.remove(task);

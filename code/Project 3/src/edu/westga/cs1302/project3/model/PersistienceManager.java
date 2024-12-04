@@ -19,9 +19,9 @@ public class PersistienceManager {
 	 * Saves the tasks from the given TaskManager to the specified file.
 	 * 
 	 * @param taskManager the TaskManager containing tasks to save
-	 * @param file        the file being saved
+	 * @param file the file being saved
 	 * @throws IllegalArgumentException if taskManager or filePath is null
-	 * @throws IOException              if an I/O error occurs
+	 * @throws IOException if an I/O error occurs
 	 */
 	public void saveTasks(TaskManager taskManager, File file) throws IOException {
 		if (taskManager == null) {
@@ -47,7 +47,7 @@ public class PersistienceManager {
 	 * @param file the file being loaded
 	 * @return a TaskManager containing the loaded tasks
 	 * @throws IllegalArgumentException if filePath is null
-	 * @throws IOException              if an I/O error occurs
+	 * @throws IOException if an I/O error occurs
 	 */
 	public TaskManager loadTasks(File file) throws IOException {
 		if (file == null) {
@@ -57,7 +57,6 @@ public class PersistienceManager {
 		TaskManager taskManager = new TaskManager();
 		try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
 			if (!reader.readLine().toUpperCase().equals("Task:".toUpperCase())) {
-				System.out.println("Here");
 				throw new IllegalArgumentException();
 			}
 			String line;
