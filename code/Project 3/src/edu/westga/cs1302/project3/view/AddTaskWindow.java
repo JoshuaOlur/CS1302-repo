@@ -55,7 +55,16 @@ public class AddTaskWindow {
 			alert.setHeaderText("Input Error");
 			alert.showAndWait();
 		} else {
-			this.vm.addTask();
+			try {
+				this.vm.addTask();
+			} catch (Exception eE) {
+				Alert alert = new Alert(Alert.AlertType.ERROR);
+				alert.setTitle("ERROR");
+				alert.setContentText("Task cannot be a duplicate");
+				alert.setHeaderText("Duplicate Task");
+				alert.showAndWait();
+				
+			}
 			this.titleTextField.getParent().getScene().getWindow().hide();
 			this.titleTextField.clear();
 			this.descriptionTextArea.clear();
