@@ -3,6 +3,7 @@ package edu.westga.cs1302.project3.view;
 import edu.westga.cs1302.project3.viewmodel.MainWindowViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -41,7 +42,23 @@ public class AddTaskWindow {
 
 	@FXML
 	void addTask(ActionEvent event) {
-		this.vm.addTask();
-		this.titleTextField.getParent().getScene().getWindow().hide();
+		if (this.titleTextField.getText() == null || this.titleTextField.getText().isBlank()) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("ERROR");
+			alert.setContentText("Title cannot be null");
+			alert.setHeaderText("Input Error");
+			alert.showAndWait();
+		} else if (this.descriptionTextArea.getText() == null || this.descriptionTextArea.getText().isBlank()) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("ERROR");
+			alert.setContentText("Description cannot be null");
+			alert.setHeaderText("Input Error");
+			alert.showAndWait();
+		} else {
+			this.vm.addTask();
+			this.titleTextField.getParent().getScene().getWindow().hide();
+			this.titleTextField.clear();
+			this.descriptionTextArea.clear();
+		}
 	}
 }

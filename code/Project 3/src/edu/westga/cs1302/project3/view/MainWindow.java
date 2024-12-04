@@ -95,7 +95,8 @@ public class MainWindow {
 
 	@FXML
 	void removeTask(ActionEvent event) {
-
+		Task selectedTask = this.taskListView.getSelectionModel().getSelectedItem();
+		this.vm.removeTask(selectedTask);
 	}
 
 	@FXML
@@ -125,4 +126,5 @@ public class MainWindow {
 		}
 
 	}
+	
 }

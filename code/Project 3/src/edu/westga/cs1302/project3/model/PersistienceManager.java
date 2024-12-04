@@ -33,6 +33,7 @@ public class PersistienceManager {
 
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
 			writer.write("Task:");
+			writer.newLine();
 			for (Task task : taskManager.getTasks()) {
 				writer.write(task.getTitle() + "," + task.getDescription());
 				writer.newLine();
@@ -55,12 +56,13 @@ public class PersistienceManager {
 
 		TaskManager taskManager = new TaskManager();
 		try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-			if (!reader.readLine().equals("Task:")) {
+			if (!reader.readLine().toUpperCase().equals("Task:".toUpperCase())) {
+				System.out.println("Here");
 				throw new IllegalArgumentException();
 			}
 			String line;
 			while ((line = reader.readLine()) != null) {
-				String[] parts = line.split("\t", 2);
+				String[] parts = line.split(",", 2);
 				if (parts.length == 2) {
 					String title = parts[0];
 					String description = parts[1];

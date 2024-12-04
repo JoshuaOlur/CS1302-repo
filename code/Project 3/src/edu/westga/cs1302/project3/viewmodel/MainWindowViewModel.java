@@ -45,9 +45,6 @@ public class MainWindowViewModel {
 
 	}
 
-
-
-
 	public ListProperty<Task> getTaskList() {
 		return this.taskList;
 	}
@@ -66,14 +63,15 @@ public class MainWindowViewModel {
 
 	public void loadData(File selectedFile) {
 		this.tm.getTasks().clear();
+		this.taskList.clear();
 		try {
 			this.tm = this.pm.loadTasks(selectedFile);
 			this.updateDisplay();
 		} catch (Exception eE) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setTitle("ERROR");
-			alert.setContentText("SOMETHING WENT WRONG");
-			alert.setHeaderText("FIX IT");
+			alert.setContentText("Invalid File");
+			alert.setHeaderText("Something Went Wrong");
 			alert.showAndWait();
 		}
 	}
@@ -81,6 +79,7 @@ public class MainWindowViewModel {
 	public void saveData(File selectedFile) {
 		try {
 			this.pm.saveTasks(this.tm, selectedFile);
+			this.taskList.clear();
 		} catch (IOException eE) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setTitle("ERROR");
@@ -97,9 +96,15 @@ public class MainWindowViewModel {
 		String title = this.title.get();
 		String description = this.description.get();
 		Task task = new Task(title, description);
-		this.tm.getTasks().add(task);
+		this.tm.addTask(task);
 		this.taskList.add(task);
-		
+
+	}
+	
+	public void removeTask(Task task) {
+		this.tm.removeTask(task);
+		this.taskList.remove(task);
+
 	}
 
 }
