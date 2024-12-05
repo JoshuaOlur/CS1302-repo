@@ -147,9 +147,16 @@ public class MainWindowViewModel {
 	 * @param task the task to remove
 	 */
 	public void removeTask(Task task) {
+		try {
 		this.tm.removeTask(task);
 		this.taskList.remove(task);
-
+		} catch (IllegalArgumentException eE) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("ERROR");
+			alert.setContentText("Cannot Remove Nothing");
+			alert.setHeaderText("Something Went Wrong");
+			alert.showAndWait();
+		}
 	}
 
 }
