@@ -1,0 +1,4 @@
+Task:
+Cleaning,Task of cleaning room
+Eating,Task of eating room
+Vaccume,Task of Vaccuming room
